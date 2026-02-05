@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Gift 💝</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: radial-gradient(circle at top, #fff1f5, #ffe4e6);
+      font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: #111827;
+    }
+    .card {
+      width: min(720px, 100%);
+      background: rgba(255,255,255,.8);
+      border-radius: 24px;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+      padding: 28px;
+      text-align: center;
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 42px); }
+    p { margin: 0 0 18px; color: #6b7280; font-size: 16px; }
+
+    .code {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px dashed rgba(0,0,0,.2);
+      background: rgba(255,255,255,.7);
+      display: inline-block;
+      user-select: all;
+    }
+
+    .hint { margin-top: 16px; font-size: 13px; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1 id="title">YAY 💖</h1>
+    <p id="line">little gift message me and ill tell u what its for</p>
+
+    <!-- PUT YOUR GIFT CARD CODE HERE -->
+    <div class="code" id="giftCode">PASTE-YOUR-CODE-HERE</div>
+
+    <div class="hint">(Tap the code to select/copy)</div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const name = params.get("name");
+    const from = params.get("from");
+
+    const title = document.getElementById("title");
+    const line = document.getElementById("line");
+
+    if (name) title.textContent = `${name} 💖`;
+    if (from) line.textContent = `Here’s your gift — from ${from}:`;
+  </script>
+</body>
+</html>
